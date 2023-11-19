@@ -1,0 +1,18 @@
+<div class="row g-3 py-5">
+  <div class="col-md-2" *ngFor="let item of fav" >
+      <div class="cart" >
+
+      <img src={{item.imageCover}} class="w-100" alt="">
+
+        <h6 class="text-success">{{item.category.name}}</h6>
+        <p >{{item.title.split(' ').splice(0,2).join(' ')}}</p>
+        <div class="d-flex justify-content-between">
+          <p>{{item.price}} EGP</p>
+          <p>{{item.ratingsAverage}}<i class="fa-solid fa-star"></i></p>
+        </div>
+
+      </div>
+
+
+  </div>
+</div>

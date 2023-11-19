@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="w-75 m-auto">
+    <form [formGroup]="loginGroup" (ngSubmit)="logined()" class="my-3" ngmo>
+      <h2>Login Now</h2>
+      <label for="email"></label>
+      <input class="form-control py-3" placeholder="Email adress" formControlName="email" name="email" type="email" id="email">
+      <label for="password"></label>
+      <input class="form-control py-3" placeholder="Enter Password" formControlName="password" name="password" type="password" id="password">
+
+      <a class="text-decoration-none my-">forget password?</a>
+      <div>
+        <button [disabled]="this.loginGroup.invalid" class="btn btn-success me-2 my-2">Login</button>
+        <button routerLink="/register" class="btn btn-info text-white">Register</button>
+      </div>
+    </form>
+  </div>
+</div>

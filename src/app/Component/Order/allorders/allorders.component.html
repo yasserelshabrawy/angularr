@@ -1,0 +1,36 @@
+    <div class="w-50 mx-auto bg-light my-2 p-3">
+      <h3 class="text-center">All Orders</h3>
+
+
+          <div class="row" *ngFor="let prd of prds">
+            <div class="col-md-12">
+
+                <div class="row bg-white my-2  align-items-center" *ngFor="let item of prd.cartItems">
+                  <div class="col-md-6 d-flex align-items-center">
+                    <div class="col-md-4">
+                  <img [src]="item.product.imageCover" class="w-100" alt="">
+                    </div>
+                    <div class="col-md-8 text-main">
+                    <h6>Name:{{item.product.title.split(" ").slice(0,2).join(" ")}} </h6>
+                    <h6>Count:{{item.count}} </h6>
+                    <h6>Price:{{item.price}}</h6>
+                    </div>
+                  </div>
+                  <div class="col-md-6 text-center">
+                    <h6 class="my-3">Is Deliverd : <span class="bg-danger text-white p-1 rounded ">{{prd.isDeliverd?"yes":'NO'}}</span></h6>
+                    <h6>Is Paid : <span class="bg-success text-white p-1 rounded">{{prd.isPaid?"yes":'NO'}}</span></h6>
+
+
+                  </div>
+                </div>
+
+            </div>
+            <div class="col-md-6 mx-auto border border-black">
+              <h4 class="text-center ">Total Price : {{prd.totalOrderPrice}}</h4>
+              <h4 class="text-center ">Pay Method : {{prd.paymentMethodType}}</h4>
+
+            </div>
+          </div>
+
+    </div>
+

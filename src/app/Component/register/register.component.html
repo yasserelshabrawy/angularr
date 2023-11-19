@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="w-75 m-auto">
+    <form [formGroup]="registerGroup" (ngSubmit)="registed()" class="my-3">
+      <h2>Register Now</h2>
+      <label for="name"></label>
+      <input class="form-control py-3" placeholder="name" formControlName="name" name="name" type="text" id="name">
+      <label for="email"></label>
+      <input class="form-control py-3" placeholder="Email adress" formControlName="email" name="email" type="email" id="email">
+      <label for="phone"></label>
+      <input class="form-control py-3" placeholder="phone" name="phone" formControlName="phone" type="tel" id="phone">
+      <label for="password"></label>
+      <input class="form-control py-3" placeholder="Enter Password" formControlName="password" name="password" type="password" id="password">
+      <label for="re-password"></label>
+      <input class="form-control py-3" placeholder="Enter re-Password" formControlName="rePassword" name="rePassword" type="password" id="re-password">
+
+      <div>
+
+        <button [disabled]="this.registerGroup.invalid" class="btn btn-info text-white my-2">Register</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="row g-3 py-5">
+  <div class="col-md-2" *ngFor="let prd of prdList.data" >
+      <div class="cart" >
+        <div class="position-relative" >
+
+            <i class='icon fas fa-heart-crack position-absolute text-danger fs-3 py-2 ps-1 end-0' *ngIf="wishList.includes(prd.id)" (click)="removeFromWishList(prd.id)"></i>
+            <i class='icon fas fa-heart position-absolute text-success fs-3 py-2 ps-1 end-0' *ngIf="!wishList.includes(prd.id)" (click)="addToWishList(prd.id)"></i>
+
+      <img src={{prd.imageCover}} class="w-100" routerLink="/productDetails/{{prd.id}}" alt="">
+        </div>
+        <h6 class="text-success">{{prd.category.name}}</h6>
+        <p >{{prd.title.split(' ').splice(0,2).join(' ')}}</p>
+        <div class="d-flex justify-content-between">
+          <p>{{prd.price}} EGP</p>
+          <p>{{prd.ratingsAverage}}<i class="fa-solid fa-star"></i></p>
+        </div>
+
+      </div>
+      <button (click)="addToCart(prd.id)" class="btn btn-success text-white w-100">Add to Cart</button>
+
+
+  </div>
+</div>
+

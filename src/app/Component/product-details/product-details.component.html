@@ -1,0 +1,16 @@
+<div class="row align-items-center">
+  <div class="col-md-4">
+    <img src={{prdLis.data.imageCover}} class="w-100" alt="">
+  </div>
+  <div class="col-md-8 ">
+    <h4>{{prdLis.data.title.split(' ').splice(0,2).join(' ')}}</h4>
+    <p>{{prdLis.data.description}}</p>
+    <h5 class="text-success">{{prdLis.data.category.name}}</h5>
+    <h5 class="text-success">Price:{{prdLis.data.price}}EPG</h5>
+    <div class="d-flex justify-content-between">
+      <h6>ratingsQuantity:{{prdLis.data.ratingsQuantity}}</h6>
+      <h6>{{prdLis.data.ratingsAverage}} <i class="fa-solid fa-star"></i></h6>
+    </div>
+    <button class="btn btn-success w-100">Add to Cart</button>
+  </div>
+</div>

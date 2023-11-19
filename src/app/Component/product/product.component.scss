@@ -1,0 +1,15 @@
+i{
+  color: goldenrod;
+}
+.icon{
+transition: opacity 1s;
+opacity: 0;
+
+}
+.cart:hover .icon{
+opacity: 1;
+
+}
+.cart{
+  cursor: pointer;
+}

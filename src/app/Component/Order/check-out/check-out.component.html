@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="w-75 m-auto">
+    <form [formGroup]="checkOut" (ngSubmit)="onlinePayment()" class="my-3" ngmo>
+      <h2>CheckOut</h2>
+      <label for="details"></label>
+      <input class="form-control py-3" placeholder="details" formControlName="details" name="details" type="details" id="details">
+      <label for="phone"></label>
+      <input class="form-control py-3" placeholder=" phone" formControlName="phone" name="phone" type="phone" id="phone">
+      <label for="city"></label>
+      <input class="form-control py-3" placeholder=" city" formControlName="city" name="city" type="city" id="city">
+
+
+      <div>
+        <button [disabled]="this.checkOut.invalid" class="btn btn-success me-2 my-2">CheckOut</button>
+
+      </div>
+    </form>
+  </div>
+</div>
+
