@@ -11,6 +11,6 @@
       <h6>ratingsQuantity:{{prdLis.data.ratingsQuantity}}</h6>
       <h6>{{prdLis.data.ratingsAverage}} <i class="fa-solid fa-star"></i></h6>
     </div>
-    <button class="btn btn-success w-100">Add to Cart</button>
+    <button class="btn btn-success w-100" (click)="addToCart(this.prdLis.data.id)">Add to Cart</button>
   </div>
 </div>
