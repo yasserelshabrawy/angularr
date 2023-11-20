@@ -3,16 +3,47 @@
     <form [formGroup]="registerGroup" (ngSubmit)="registed()" class="my-3">
       <h2>Register Now</h2>
       <label for="name"></label>
-      <input class="form-control py-3" placeholder="name" formControlName="name" name="name" type="text" id="name">
+      <input class="form-control py-3" placeholder="name" formControlName="name" name="name" type="text" id="name" [ngClass]="registerGroup.get('name')?.valid ? 'is-valid': 'is-invalid' ">
+      <div [hidden]="registerGroup.get('name')?.valid || registerGroup.get('name')?.untouched" class="alert alert-danger p-2 rounded-1 ">
+        <small *ngIf="registerGroup.get('name')?.errors?.['minlength']">
+          name must be minlength 5 chars
+        </small>
+        <small *ngIf="registerGroup.get('name')?.errors?.['required']">
+          name is required
+        </small>
+      </div>
       <label for="email"></label>
-      <input class="form-control py-3" placeholder="Email adress" formControlName="email" name="email" type="email" id="email">
+      <input class="form-control py-3" placeholder="Email adress" formControlName="email" name="email" type="email" id="email" [ngClass]="registerGroup.get('email')?.valid ? 'is-valid': 'is-invalid' ">
+      <div [hidden]="registerGroup.get('email')?.valid || registerGroup.get('email')?.untouched" class="alert alert-danger p-2 rounded-1 ">
+        <small *ngIf="registerGroup.get('email')?.errors?.['email']">
+          email must be contain @
+        </small>
+        <small *ngIf="registerGroup.get('email')?.errors?.['required']">
+          email is required
+        </small>
+      </div>
       <label for="phone"></label>
       <input class="form-control py-3" placeholder="phone" name="phone" formControlName="phone" type="tel" id="phone">
       <label for="password"></label>
-      <input class="form-control py-3" placeholder="Enter Password" formControlName="password" name="password" type="password" id="password">
+      <input class="form-control py-3" placeholder="Enter Password" formControlName="password" name="password" type="password" id="password" [ngClass]="registerGroup.get('password')?.valid ? 'is-valid': 'is-invalid' ">
+      <div [hidden]="registerGroup.get('password')?.valid || registerGroup.get('password')?.untouched" class="alert alert-danger p-2 rounded-1 ">
+  <small *ngIf="registerGroup.get('password')?.errors?.['pattern']">
+      Password must contain more than 8 characters, 1 upper case letter
+  </small>
+  <small *ngIf="registerGroup.get('password')?.errors?.['required']">
+    password is required
+  </small>
+</div>
       <label for="re-password"></label>
-      <input class="form-control py-3" placeholder="Enter re-Password" formControlName="rePassword" name="rePassword" type="password" id="re-password">
-
+      <input class="form-control py-3" placeholder="Enter re-Password" formControlName="rePassword" name="rePassword" type="password" id="re-password" [ngClass]="registerGroup.get('rePassword')?.valid ? 'is-valid': 'is-invalid' ">
+              <div [hidden]="registerGroup.get('rePassword')?.valid || registerGroup.get('rePassword')?.untouched" class="alert alert-danger p-2 rounded-1 ">
+  <small *ngIf="registerGroup.get('rePassword')?.errors?.['pattern']">
+      dosen't Match with password
+  </small>
+  <small *ngIf="registerGroup.get('rePassword')?.errors?.['required']">
+    password is required
+  </small>
+</div>
       <div>
 
         <button [disabled]="this.registerGroup.invalid" class="btn btn-info text-white my-2">Register</button>

@@ -27,13 +27,26 @@ registerGroup!:FormGroup
     this.registerGroup = this.formbuilder.group({
       name: ['', [Validators.required, Validators.minLength(5)]],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]],
-      rePassword: ['', [Validators.required]],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.{8,})/),
+        ],
+      ],
+      rePassword: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.{8,})/),
+
+        ],
+      ],
       phone: ['', [Validators.required]],
+    }
+    );
 
-    });
-
-
+    
   }
    registed() {
     if(this.registerGroup.valid){

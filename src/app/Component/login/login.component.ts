@@ -23,7 +23,13 @@ export class LoginComponent {
   ) {
     this.loginGroup = this.formbuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.{8,})/),
+        ],
+      ],
     });
   }
   logined() {

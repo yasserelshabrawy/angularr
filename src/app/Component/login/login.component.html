@@ -3,10 +3,25 @@
     <form [formGroup]="loginGroup" (ngSubmit)="logined()" class="my-3" ngmo>
       <h2>Login Now</h2>
       <label for="email"></label>
-      <input class="form-control py-3" placeholder="Email adress" formControlName="email" name="email" type="email" id="email">
+      <input class="form-control py-3" placeholder="Email adress" formControlName="email" name="email" type="email" id="email" [ngClass]="loginGroup.get('email')?.valid ? 'is-valid': 'is-invalid' ">
+                    <div [hidden]="loginGroup.get('email')?.valid || loginGroup.get('email')?.untouched" class="alert alert-danger p-2 rounded-1 ">
+  <small *ngIf="loginGroup.get('email')?.errors?.['email']">
+      email must be contain @
+  </small>
+  <small *ngIf="loginGroup.get('email')?.errors?.['required']">
+    email is required
+  </small>
+</div>
       <label for="password"></label>
-      <input class="form-control py-3" placeholder="Enter Password" formControlName="password" name="password" type="password" id="password">
-
+      <input class="form-control py-3" placeholder="Enter Password" formControlName="password" name="password" type="password" id="password" [ngClass]="loginGroup.get('password')?.valid ? 'is-valid': 'is-invalid' ">
+                      <div [hidden]="loginGroup.get('password')?.valid || loginGroup.get('password')?.untouched" class="alert alert-danger p-2 rounded-1 ">
+  <small *ngIf="loginGroup.get('password')?.errors?.['pattern']">
+      Password must contain more than 8 characters, 1 upper case letter
+  </small>
+  <small *ngIf="loginGroup.get('password')?.errors?.['required']">
+    password is required
+  </small>
+</div>
       <a class="text-decoration-none my-">forget password?</a>
       <div>
         <button [disabled]="this.loginGroup.invalid" class="btn btn-success me-2 my-2">Login</button>
